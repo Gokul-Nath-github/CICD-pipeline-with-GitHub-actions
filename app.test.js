@@ -6,7 +6,7 @@ describe('DOM Tests', () => {
   let document;
 
   beforeAll(() => {
-    const html = fs.readFileSync('./index.html', 'utf-8');
+    const html = fs.readFileSync('main.html', 'utf-8');
     dom = new JSDOM(html);
     document = dom.window.document;
   });
