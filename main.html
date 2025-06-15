@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CI/CD Demo</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    #result { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Automated Testing Demo</h1>
+  <button id="testBtn">Click Me</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('testBtn').addEventListener('click', () => {
+      document.getElementById('result').textContent = "Test Passed!";
+    });
+  </script>
+</body>
+</html>
