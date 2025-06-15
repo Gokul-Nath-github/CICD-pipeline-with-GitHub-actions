@@ -1,7 +1,7 @@
 name: CI/CD Pipeline
 on:
   push:
-    branches: [ "main", "test" ]  # Now watches 'test' branch
+    branches: [ "main", "test" ]
   pull_request:
     branches: [ "main" ]
 
@@ -18,11 +18,17 @@ jobs:
 
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/main'  # Only deploy from 'main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+      pages: write               
+      id-token: write           
     steps:
       - uses: actions/checkout@v4
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+          publish_branch: gh-pages  
+          keep_files: false     
